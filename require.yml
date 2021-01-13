@@ -1,0 +1,23 @@
+
+- hosts: localhost
+  tasks:
+    - name: "Install apache2"
+      apt: name=apache2 state=present
+    - name: "Install flask-mysql"
+      apt: name=flask-mysql state=present
+    - name: "Install python3"
+      apt: name=python3 state=present
+    - name: "Install python3-pip"
+      apt: name=python3-pip state=present
+    - name: "Install mysql-server"
+      apt: name=mysql-server state=present
+    - name: install flask
+      command: pip3 install flask
+    - name: Download js
+      get_url:
+        url: https://code.jquery.com/jquery-3.5.1.min.js
+        dest: /home/ubuntu/FlaskApp/static/js/ 
+    - name: Download jsmin
+      get_url:
+        url: https://code.jquery.com/jquery-3.5.1.js
+        dest: /home/ubuntu/FlaskApp/static/js/ 
